@@ -30,32 +30,32 @@ const app = {
             {
                   name: 'Luar',
                   singer: 'Lancelot',
-                  path: './music/LUAR - LANCELOT x FYU - RioX.mp3', 
-                  image: './image/luar.png'
+                  path: './assets/music/LUAR - LANCELOT x FYU - RioX.mp3', 
+                  image: './assets/image/luar.png'
             },
             {
                   name: 'Mi Respirar',
                   singer: 'bxkq',
-                  path: './music/MI RESPIRAR (Sped Up) - bxkq.mp3', 
-                  image: './image/mirespirar_speedup.png'
+                  path: './assets/music/MI RESPIRAR (Sped Up) - bxkq.mp3', 
+                  image: './assets/image/mirespirar_speedup.png'
             },
             {
                   name: 'Struct',
                   singer: 'UdieNnx',
-                  path: './music/STRUCT (Slowed) - UdieNnx.mp3', 
-                  image: './image/struct.png'
+                  path: './assets/music/STRUCT (Slowed) - UdieNnx.mp3', 
+                  image: './assets/image/struct.png'
             },
             {
                   name: 'Estou Livre',
                   singer: 'CHASHKAKEFIRA',
-                  path: './music/ESTOU LIVRE - CHASHKAKEFIRA.mp3', 
-                  image: './image/estoulirve.png'
+                  path: './assets/music/ESTOU LIVRE - CHASHKAKEFIRA.mp3', 
+                  image: './assets/image/estoulirve.png'
             },
             {
                   name: 'Link',
                   singer: 'RXTKY',
-                  path: './music/LINK! (feat. RXTKY) - Codet.mp3', 
-                  image: './image/link.png'
+                  path: './assets/music/LINK! (feat. RXTKY) - Codet.mp3', 
+                  image: './assets/image/link.png'
             },
       ],
       setConfig: function(key, value){
