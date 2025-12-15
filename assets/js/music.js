@@ -15,6 +15,7 @@ const randomBtn = $('.fa-shuffle');
 const repeatBtn = $('.fa-repeat');
 
 
+
 const PLAYER_STORAGE_KEY = 'hihi';
 
 const playlist = $('.playlist');
@@ -188,7 +189,6 @@ const app = {
             //next song when current song ended
             audio.onended = () => {
                   if(_this.isRepeat){
-                        // audio.currentTime = 0;
                         audio.play();
                   }else{
                         nextBtn.click();
