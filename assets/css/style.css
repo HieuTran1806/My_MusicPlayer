@@ -160,6 +160,10 @@ header h4{
       font-size: 18px;
 }
 
+.volumn-control > audio{
+      
+}
+
 .volumn-control,
 .option{
       display: inline-block;
