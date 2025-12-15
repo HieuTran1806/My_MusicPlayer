@@ -3,7 +3,8 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const heading = $('header h2');
-const volumnControl = $('.volumn-control'); 
+const speaker = $('.fa-volume-high'); 
+const volumnControl = $('input[type="range"]');
 const cd = $('.cd');
 const audio = document.querySelector('audio');
 const playBtn = $('.btn-toggle-play');
@@ -14,7 +15,6 @@ const preBtn = $('.btn-prev');
 const nextBtn = $('.btn-next');
 const randomBtn = $('.fa-shuffle');
 const repeatBtn = $('.fa-repeat');
-
 
 const PLAYER_STORAGE_KEY = 'hihi';
 
@@ -104,6 +104,15 @@ const app = {
                   
             );
       
+            // constrol volumn
+            speaker.onclick = (e) => {
+                  speaker.parentNode.classList.toggle('volumn-active')
+            }
+            volumnControl.oninput = (e) => {
+                  audio.volume = e.target.value / 100; 
+            }
+            
+
             cdAnimate.pause();
 
             document.onscroll = () =>{
