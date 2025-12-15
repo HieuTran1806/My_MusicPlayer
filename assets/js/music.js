@@ -20,7 +20,7 @@ const PLAYER_STORAGE_KEY = 'hihi';
 const playlist = $('.playlist');
 
 const app = {
-      currentIndex: 1,
+      currentIndex: 0,
       isPlaying: false, 
       isRandom: false,
       isRepeat: false,
