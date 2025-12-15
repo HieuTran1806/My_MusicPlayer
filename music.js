@@ -2,7 +2,6 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-
 const heading = $('header h2');
 const cd = $('.cd');
 const audio = document.querySelector('audio');
@@ -143,7 +142,7 @@ const app = {
                   }
             }
             
-            progress.onchange = (e) => {
+            progress.oninput = (e) => {
                   audio.currentTime = e.target.value / 100 * audio.duration;
             }
 
@@ -161,6 +160,7 @@ const app = {
                   }
                   audio.play();
                   _this.render();
+                  _this.setConfig('currentIndex', this.currentIndex);
                   _this.scrollToActiveSong();
             }
             preBtn.onclick = () => { 
@@ -171,6 +171,7 @@ const app = {
                   }
                   audio.play();
                   _this.render();
+                  _this.setConfig('currentIndex', this.currentIndex);
                   _this.scrollToActiveSong();
             }
             randomBtn.onclick = () => {
@@ -192,6 +193,7 @@ const app = {
                   }else{
                         nextBtn.click();
                   }
+                        _this.setConfig('currentIndex', this.currentIndex);
             }
 
             playlist.onclick = (e) =>{
@@ -206,6 +208,8 @@ const app = {
                               _this.loadCurrentSong();
                               audio.play();
                               _this.render();
+                              _this.setConfig('currentIndex', this.currentIndex);
+
                         }else{
                               const songdeleted = $(`.song[data-index="${Number(indexSongClick)}"]`);
                               songdeleted.remove();
@@ -227,6 +231,7 @@ const app = {
             audio.src = this.currentSong.path;
       },
       loadConfig(){
+            this.currentIndex = this.config.currentIndex;
             this.isRandom = this.config.isRandom;
             this.isRepeat = this.config.isRepeat;
       },
