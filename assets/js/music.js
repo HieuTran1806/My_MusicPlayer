@@ -231,9 +231,11 @@ const app = {
             audio.src = this.currentSong.path;
       },
       loadConfig(){
-            this.currentIndex = this.config.currentIndex;
-            this.isRandom = this.config.isRandom;
-            this.isRepeat = this.config.isRepeat;
+            if(this.config){
+                  if(this.config.currentIndex != null) this.currentIndex = this.config.currentIndex;
+                  if(this.config.isRandom != null) this.isRandom = this.config.isRandom;
+                  if(this.config.isRepeat != null) this.isRepeat = this.config.isRepeat;
+            }
       },
       configIntoApp(){
             randomBtn.classList.toggle('shuffle', this.isRandom);
