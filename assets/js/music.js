@@ -58,6 +58,48 @@ const app = {
                   path: './assets/music/LINK! (feat. RXTKY) - Codet.mp3', 
                   image: './assets/image/link.png'
             },
+            {
+                  name: 'bajoluna',
+                  singer: 'Yb Wasg\'ood',
+                  path: './assets/music/Yb Wasg\'ood, TheFloudy - BAJO LA LUNA - void.mp3', 
+                  image: './assets/image/bajoluna.png'
+            },
+            {
+                  name: 'Contio Siempre',
+                  singer: 'Pascal Schürmann',
+                  path: '../assets/music/Contigo Siempre - Flame Runner.mp3', 
+                  image: './assets/image/contiosiempre.png'
+            },
+            {
+                  name: 'Loyalty',
+                  singer: 'Primex',
+                  path: './assets/music/LOYALTY (Sped Up) - Primex.mp3', 
+                  image: './assets/image/loyalty.png'
+            },
+            {
+                  name: 'Montagem Noche',
+                  singer: 'LUMIX',
+                  path: './assets/music/MONTAGEM NOCHE - LUMIX.mp3', 
+                  image: './assets/image/montagemnoche.png'
+            },
+            {
+                  name: 'Noche eterna',
+                  singer: 'Pascal Schürmann, Daniel Wright',
+                  path: './assets/music/Noche Eterna - Flame Runner.mp3', 
+                  image: './assets/image/nocheeterna.png'
+            },
+            {
+                  name: 'Salava funk',
+                  singer: 'MVSTERIOUS',
+                  path: './assets/music/SLAVA FUNK! - MVSTERIOUS.mp3', 
+                  image: './assets/image/salavafunk.png'
+            },
+            {
+                  name: 'Void',
+                  singer: 'Hongzhe Gui',
+                  path: './assets/music/Void.mp3', 
+                  image: './assets/image/void.png'
+            },
       ],
       setConfig: function(key, value){
             this.config[key] = value;
