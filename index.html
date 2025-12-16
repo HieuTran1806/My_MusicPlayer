@@ -7,12 +7,9 @@
     <script src="https://kit.fontawesome.com/9ab5994b85.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
+<body class="">
     <div id="background">
-        <img src="./assets/image/luar.png" alt="">
-        <!-- data music - img -->
-        <img src="./assets/music/Void.mp3" alt="">
-        <img src="./assets/image/void.png" alt="">
+        <img src="" alt="">
     </div>
 
     <div class="player">
@@ -26,11 +23,23 @@
                 <div class="song-info">
                     <div class="volumn-control">
                         <i class="fa-solid fa-volume-high icon"></i>
-                        <input id="volumn" value="50" step="1" min="0" max="100" type="range" orient="vertical">
+                        <input id="volumn" value="100" step="1" min="0" max="100" type="range" orient="vertical">
                     </div>
                     <h2 id="music-playing">Luar</h2>
                     <div class="option">
                         <i class="fa-solid fa-ellipsis icon"></i>
+                        <div class="option-menu no-copy">
+                            <div class="dark-mode theme-item">
+                                <i class="fa-solid fa-moon icon"></i>
+                                <span>Dark mode</span>
+                                
+                            </div>
+                            <div class="light-mode theme-item">
+                                <i class="fa-solid fa-sun"></i>
+                                <span>Light mode</span>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>

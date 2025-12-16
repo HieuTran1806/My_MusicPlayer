@@ -15,6 +15,12 @@ const preBtn = $('.btn-prev');
 const nextBtn = $('.btn-next');
 const randomBtn = $('.fa-shuffle');
 const repeatBtn = $('.fa-repeat');
+const ellipsis = $('.fa-ellipsis');
+const option = $('.option');
+const optionMenu = $('.option-menu');
+const optionMoon = $('.dark-mode');
+const optionSun = $('.light-mode');
+const body = $('body');
 
 const PLAYER_STORAGE_KEY = 'hihi';
 
@@ -25,8 +31,8 @@ const app = {
       isPlaying: false, 
       isRandom: false,
       isRepeat: false,
-      config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {}
-      ,
+      isMoon: false,
+      config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
       songs: [
             {
                   name: 'Luar',
@@ -153,6 +159,21 @@ const app = {
             volumnControl.oninput = (e) => {
                   audio.volume = e.target.value / 100; 
             }
+
+            //option 
+            ellipsis.onclick = (e) => {
+                  optionMenu.classList.toggle('active');
+            }
+            optionMoon.onclick = () =>{
+                  _this.isMoon = true;
+                  _this.setConfig('isMoon', _this.isMoon);
+                  body.classList.add('moon-body');
+            }
+            optionSun.onclick = () =>{
+                  _this.isMoon = false;
+                  _this.setConfig('isMoon', _this.isMoon);
+                  body.classList.remove('moon-body');
+            }
             
 
             cdAnimate.pause();
@@ -163,6 +184,7 @@ const app = {
                   
                   cd.style.width = cdNewWidth > 0 ? `${cdNewWidth}px` : 0;
                   cd.style.opacity = cdNewWidth / cdWidth;
+                  console.log(cdNewWidth);
             }
 
             // onclick
@@ -198,12 +220,6 @@ const app = {
                   audio.currentTime = e.target.value / 100 * audio.duration;
             }
 
-            // other btn functions
-
-            // reloadBtn.onclick = () => {
-            //       audio.load();
-            //       audio.play();
-            // }
             nextBtn.onclick = () => { 
                   if(_this.isRandom){
                         _this.randomSong();
@@ -284,11 +300,13 @@ const app = {
       loadConfig(){
             if(this.config){
                   if(this.config.currentIndex != null) this.currentIndex = this.config.currentIndex;
+                  if(this.config.isMoon != null) this.isMoon = this.config.isMoon;
                   if(this.config.isRandom != null) this.isRandom = this.config.isRandom;
                   if(this.config.isRepeat != null) this.isRepeat = this.config.isRepeat;
             }
       },
       configIntoApp(){
+            body.classList.toggle('moon-body', this.isMoon);
             randomBtn.classList.toggle('shuffle', this.isRandom);
             repeatBtn.classList.toggle('repeat', this.isRepeat);
       }

@@ -6,13 +6,36 @@
 
 :root{
       --border-color: #d9d6d6;
-      --text-color: #ffffff;
-      --main-color: #efabf4;
+      --text-sun-color: #1F2933;
+      --text-moon-color: #E5E7EB;
+      --main-sun-color: #A7D8FF;
+      --main-moon-color: #0EA5E9;
       --border-color-cd: #c1202f;
       --btn-color: #d7d9dd;
       --playing-text: #760dee;
       --playing-text-title: #de0e84;
+      --background-sun-color: #EAF6FF;
+      --background-moon-color: #0F172A;
 }
+
+.no-copy {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome, Safari, Opera */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported in Chrome, Edge, Opera and Firefox */
+}
+
+body{
+      background-color: var(--background-sun-color);
+}
+
+/* when set moon  */
+body.moon-body{
+      background-color: var(--background-moon-color);
+}
+
 
 .btn:hover{
       cursor: pointer;
@@ -27,7 +50,7 @@
       flex-direction: column;
       position: relative;
       max-width: 480px;
-      margin: 50px auto 0;
+      margin: 0 auto;
       background-size: cover;
 }
 
@@ -52,11 +75,9 @@
       display: none;
 }
 
-
 .div{
       display: block;
 }
-
 
 #background{
       background-repeat: no-repeat;
@@ -70,6 +91,10 @@
       left: 0;
 }
 
+body.moon-body .dashboard{
+      background-color: var(--main-moon-color);
+}
+
 .dashboard{
       z-index: 1;
       display: flex;
@@ -78,9 +103,9 @@
       max-width: 480px;
       height:max-content;
       padding: 16px 16px 14px;
-      background-color: var(--main-color);
       border-radius: 10px;
       position: fixed;
+      background-color: var(--main-sun-color);
       border-bottom: 1px solid var(--border-color);
       transition: background-color 0.3s;
       flex-direction: column;
@@ -172,8 +197,7 @@ header h4{
       display: block;
 }
 
-.volumn-control,
-.option{
+.volumn-control{
       display: inline-block;
       position: relative;
 }
@@ -193,6 +217,75 @@ header h4{
       right: 8px; 
 }
 
+.option{
+      position: relative;
+      display: inline-block;
+}
+
+
+.option:hover{
+      cursor: pointer;
+}
+
+
+
+
+.option-menu{
+      align-items: center;
+      width: 160px;
+      top: 100%;
+      right: 0;
+      position: absolute;
+      display: none;
+      padding: 4px 10px;
+      transition: all 0.5s linear;
+}
+
+.option-menu.active{
+      display: flex;
+      flex-direction: column;
+}
+
+.option-menu > div{
+      margin-bottom: 4px;
+}
+
+body.moon-body .fa-moon{
+      color: #99d1fb;
+}
+
+.option .fa-moon{
+      color: var(--background-moon-color);
+}
+
+.option .fa-sun{
+      color: #e15018;
+}
+
+.theme-item{
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      gap: 6px;
+}
+
+/* change when click time morning and night */
+.option .light-mode{
+      display: none;
+}
+
+.option .dark-mode{
+      display: block;
+}
+
+body.moon-body .dark-mode{
+      display: none;
+}
+
+body.moon-body .light-mode{
+      display: block;
+}
+
 .cd{
       position: relative;
       width: 200px;
@@ -210,10 +303,15 @@ header h4{
       padding: 18px 0 8px 0;;
 }
 
+body.moon-body .btn-toggle-play > i{
+      background-color: var(--main-sun-color);
+}
+
 .control .btn-toggle-play > i{      
       align-content: center;
+      border: 2px solid var(--playing-text);
       color: var(--main-color);
-      background-color: var(--playing-text);
+      background-color: var(--main-moon-color);
       width: 40px;
       aspect-ratio: 1/1;
       border-radius: 100%;
@@ -252,15 +350,24 @@ header h4{
   cursor: pointer;
 }
 
+body.moon-body .playlist{
+      color: var(--text-moon-color);
+}
 .playlist{
       scrollbar-width: none;
       flex: 1;
-      margin-top: 428px;
+      margin-top: 414px;
       overflow-y: auto;
+      font-weight: 500;
+      color: var(--text-sun-color);
 }
 
 .playlist::-webkit-scrollbar{
       display: none;
+}
+
+body.moon-body .song{
+      background-color: var(--main-moon-color);
 }
 
 .song{
@@ -268,7 +375,7 @@ header h4{
       align-items: center;
       width: 95%;
       margin: 0 auto 12px;
-      background-color: var(--main-color);
+      background-color: var(--main-sun-color);
       padding: 8px 16px;
       box-shadow: 0 2px 3px #f1d6d6;
       border: 1px solid var(--border-color);
