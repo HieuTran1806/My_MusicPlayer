@@ -73,7 +73,7 @@ const app = {
             {
                   name: 'Contio Siempre',
                   singer: 'Pascal Schürmann',
-                  path: '../assets/music/Contigo Siempre - Flame Runner.mp3', 
+                  path: './assets/music/Contigo Siempre - Flame Runner.mp3', 
                   image: './assets/image/contiosiempre.png'
             },
             {
