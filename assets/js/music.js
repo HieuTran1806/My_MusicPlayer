@@ -23,6 +23,7 @@ const optionSun = $('.light-mode');
 const body = $('body');
 const favicon = $('#favicon')
 
+
 const PLAYER_STORAGE_KEY = 'hihi';
 
 const playlist = $('.playlist');
@@ -227,7 +228,8 @@ const app = {
                   }else{
                         _this.nextSong();
                   }
-                  this.changeFavicon(_this.currentSong.image)
+                  _this.changeTitle(_this.currentSong.name)
+                  _this.changeFavicon(_this.currentSong.image)
                   audio.play();
                   _this.render();
                   _this.setConfig('currentIndex', this.currentIndex);
@@ -239,7 +241,8 @@ const app = {
                   }else{
                         _this.preSong();
                   }
-                  this.changeFavicon(_this.currentSong.image)
+                  _this.changeTitle(_this.currentSong.name);
+                  _this.changeFavicon(_this.currentSong.image)
                   audio.play();
                   _this.render();
                   _this.setConfig('currentIndex', this.currentIndex);
@@ -290,6 +293,11 @@ const app = {
       },
       changeFavicon(iconPath){
          favicon.href = iconPath;
+      },
+      changeTitle(newTitle){
+         if (document.title != newTitle) {
+            document.title = newTitle;
+         }
       },
       scrollToActiveSong(){
             setTimeout(()=>{
