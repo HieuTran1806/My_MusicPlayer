@@ -290,7 +290,7 @@ const app = {
                      _this.render();
                      _this.setConfig('currentIndex', this.currentIndex);
 
-                     // change title and favicon when click music 
+                     // change title and favicon when click music
                      _this.changeTitle(_this.currentSong.name)
                      _this.setConfig('titleText', _this.currentSong.name)
                      _this.changeFavicon(_this.currentSong.image)
