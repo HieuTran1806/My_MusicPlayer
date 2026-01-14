@@ -178,7 +178,6 @@ const app = {
                _this.setConfig('isMoon', _this.isMoon);
                body.classList.remove('moon-body');
          }
-         
 
          cdAnimate.pause();
 
