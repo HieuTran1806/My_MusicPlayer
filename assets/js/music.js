@@ -29,85 +29,87 @@ const PLAYER_STORAGE_KEY = 'hihi';
 const playlist = $('.playlist');
 
 const app = {
-      currentIndex: 0,
-      isPlaying: false, 
-      isRandom: false,
-      isRepeat: false,
-      isMoon: false,
-      config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
-      songs: [
-            {
-                  name: 'Luar',
-                  singer: 'Lancelot',
-                  path: './assets/music/LUAR - LANCELOT x FYU - RioX.mp3', 
-                  image: './assets/image/luar.png'
-            },
-            {
-                  name: 'Mi Respirar',
-                  singer: 'bxkq',
-                  path: './assets/music/MI RESPIRAR (Sped Up) - bxkq.mp3', 
-                  image: './assets/image/mirespirar_speedup.png'
-            },
-            {
-                  name: 'Struct',
-                  singer: 'UdieNnx',
-                  path: './assets/music/STRUCT (Slowed) - UdieNnx.mp3', 
-                  image: './assets/image/struct.png'
-            },
-            {
-                  name: 'Estou Livre',
-                  singer: 'CHASHKAKEFIRA',
-                  path: './assets/music/ESTOU LIVRE - CHASHKAKEFIRA.mp3', 
-                  image: './assets/image/estoulirve.png'
-            },
-            {
-                  name: 'Link',
-                  singer: 'RXTKY',
-                  path: './assets/music/LINK! (feat. RXTKY) - Codet.mp3', 
-                  image: './assets/image/link.png'
-            },
-            {
-                  name: 'bajoluna',
-                  singer: 'Yb Wasg\'ood',
-                  path: './assets/music/Yb Wasg\'ood, TheFloudy - BAJO LA LUNA - void.mp3', 
-                  image: './assets/image/bajoluna.png'
-            },
-            {
-                  name: 'Contio Siempre',
-                  singer: 'Pascal Schürmann',
-                  path: './assets/music/Contigo Siempre - Flame Runner.mp3', 
-                  image: './assets/image/contiosiempre.png'
-            },
-            {
-                  name: 'Loyalty',
-                  singer: 'Primex',
-                  path: './assets/music/LOYALTY (Sped Up) - Primex.mp3', 
-                  image: './assets/image/loyalty.png'
-            },
-            {
-                  name: 'Montagem Noche',
-                  singer: 'LUMIX',
-                  path: './assets/music/MONTAGEM NOCHE - LUMIX.mp3', 
-                  image: './assets/image/montagemnoche.png'
-            },
-            {
-                  name: 'Noche eterna',
-                  singer: 'Pascal Schürmann, Daniel Wright',
-                  path: './assets/music/Noche Eterna - Flame Runner.mp3', 
-                  image: './assets/image/nocheeterna.png'
-            },
-            {
-                  name: 'Salava funk',
-                  singer: 'MVSTERIOUS',
-                  path: './assets/music/SLAVA FUNK! - MVSTERIOUS.mp3', 
-                  image: './assets/image/salavafunk.png'
-            },
-            {
-                  name: 'Void',
-                  singer: 'Hongzhe Gui',
-                  path: './assets/music/Void.mp3', 
-                  image: './assets/image/void.png'
-            },
+   currentIndex: 0,
+   isPlaying: false, 
+   isRandom: false,
+   isRepeat: false,
+   isMoon: false,
+   titleText: null,
+   faviconText: null,
+   config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+   songs: [
+         {
+               name: 'Luar',
+               singer: 'Lancelot',
+               path: './assets/music/LUAR - LANCELOT x FYU - RioX.mp3', 
+               image: './assets/image/luar.png'
+         },
+         {
+               name: 'Mi Respirar',
+               singer: 'bxkq',
+               path: './assets/music/MI RESPIRAR (Sped Up) - bxkq.mp3', 
+               image: './assets/image/mirespirar_speedup.png'
+         },
+         {
+               name: 'Struct',
+               singer: 'UdieNnx',
+               path: './assets/music/STRUCT (Slowed) - UdieNnx.mp3', 
+               image: './assets/image/struct.png'
+         },
+         {
+               name: 'Estou Livre',
+               singer: 'CHASHKAKEFIRA',
+               path: './assets/music/ESTOU LIVRE - CHASHKAKEFIRA.mp3', 
+               image: './assets/image/estoulirve.png'
+         },
+         {
+               name: 'Link',
+               singer: 'RXTKY',
+               path: './assets/music/LINK! (feat. RXTKY) - Codet.mp3', 
+               image: './assets/image/link.png'
+         },
+         {
+               name: 'bajoluna',
+               singer: 'Yb Wasg\'ood',
+               path: './assets/music/Yb Wasg\'ood, TheFloudy - BAJO LA LUNA - void.mp3', 
+               image: './assets/image/bajoluna.png'
+         },
+         {
+               name: 'Contio Siempre',
+               singer: 'Pascal Schürmann',
+               path: './assets/music/Contigo Siempre - Flame Runner.mp3', 
+               image: './assets/image/contiosiempre.png'
+         },
+         {
+               name: 'Loyalty',
+               singer: 'Primex',
+               path: './assets/music/LOYALTY (Sped Up) - Primex.mp3', 
+               image: './assets/image/loyalty.png'
+         },
+         {
+               name: 'Montagem Noche',
+               singer: 'LUMIX',
+               path: './assets/music/MONTAGEM NOCHE - LUMIX.mp3', 
+               image: './assets/image/montagemnoche.png'
+         },
+         {
+               name: 'Noche eterna',
+               singer: 'Pascal Schürmann, Daniel Wright',
+               path: './assets/music/Noche Eterna - Flame Runner.mp3', 
+               image: './assets/image/nocheeterna.png'
+         },
+         {
+               name: 'Salava funk',
+               singer: 'MVSTERIOUS',
+               path: './assets/music/SLAVA FUNK! - MVSTERIOUS.mp3', 
+               image: './assets/image/salavafunk.png'
+         },
+         {
+               name: 'Void',
+               singer: 'Hongzhe Gui',
+               path: './assets/music/Void.mp3', 
+               image: './assets/image/void.png'
+         },
       ],
       setConfig: function(key, value){
             this.config[key] = value;
@@ -115,180 +117,190 @@ const app = {
       }
       ,
       render(){
-            const htmls = this.songs.map((song, index) =>{
-                  return `
-                        <div class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
-                              <div class="musicImage" style="background-image: url('${song.image}');">
-                              </div>
-                              <div class="body">
-                                    <h3 class="title">${song.name}</h3>
-                                    <p class="author">${song.singer}</p>
-                              </div>
-                              <div class="delete-btn btn">
-                                    <i class="fa-solid fa-trash"></i>
-                              </div>
-                        </div>
-                  `
-            });
-            playlist.innerHTML = htmls.join('');
+         const htmls = this.songs.map((song, index) =>{
+               return `
+                     <div class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
+                           <div class="musicImage" style="background-image: url('${song.image}');">
+                           </div>
+                           <div class="body">
+                                 <h3 class="title">${song.name}</h3>
+                                 <p class="author">${song.singer}</p>
+                           </div>
+                           <div class="delete-btn btn">
+                                 <i class="fa-solid fa-trash"></i>
+                           </div>
+                     </div>
+               `
+         });
+         playlist.innerHTML = htmls.join('');
       },
       defineProperties: function() {
-            Object.defineProperty(this, 'currentSong', {
-                  get: function(){
-                        return this.songs[this.currentIndex];
-                  }
-            });
+         Object.defineProperty(this, 'currentSong', {
+               get: function(){
+                     return this.songs[this.currentIndex];
+               }
+         });
       }
       ,
       handleEvents(){
-            const _this = this;
-            const cdWidth = cd.offsetWidth;
+         const _this = this;
+         const cdWidth = cd.offsetWidth;
 
-            // cd rotate 360deg
-            const cdAnimate = cd.animate(
-                  [{transform: 'rotate(360deg)'}],
-                  {     duration: 10000,
-                        iterations: Infinity,
-                        easing: 'linear',
-                  }
-                  
-            );
-      
-            // constrol volumn
-            speaker.onclick = (e) => {
-                  speaker.parentNode.classList.toggle('volumn-active')
-            }
-            volumnControl.oninput = (e) => {
-                  audio.volume = e.target.value / 100; 
-            }
+         // cd rotate 360deg
+         const cdAnimate = cd.animate(
+               [{transform: 'rotate(360deg)'}],
+               {     duration: 10000,
+                     iterations: Infinity,
+                     easing: 'linear',
+               }
+               
+         );
+   
+         // constrol volumn
+         speaker.onclick = (e) => {
+               speaker.parentNode.classList.toggle('volumn-active')
+         }
+         volumnControl.oninput = (e) => {
+               audio.volume = e.target.value / 100; 
+         }
 
-            //option 
-            ellipsis.onclick = (e) => {
-                  optionMenu.classList.toggle('active');
-            }
-            optionMoon.onclick = () =>{
-                  _this.isMoon = true;
-                  _this.setConfig('isMoon', _this.isMoon);
-                  body.classList.add('moon-body');
-            }
-            optionSun.onclick = () =>{
-                  _this.isMoon = false;
-                  _this.setConfig('isMoon', _this.isMoon);
-                  body.classList.remove('moon-body');
-            }
-            
+         //option 
+         ellipsis.onclick = (e) => {
+               optionMenu.classList.toggle('active');
+         }
+         optionMoon.onclick = () =>{
+               _this.isMoon = true;
+               _this.setConfig('isMoon', _this.isMoon);
+               body.classList.add('moon-body');
+         }
+         optionSun.onclick = () =>{
+               _this.isMoon = false;
+               _this.setConfig('isMoon', _this.isMoon);
+               body.classList.remove('moon-body');
+         }
+         
 
-            cdAnimate.pause();
+         cdAnimate.pause();
 
-            document.onscroll = () =>{
-                  const scrollTop = document.documentElement.scrollTop || window.scrollY;
-                  var cdNewWidth = cdWidth - scrollTop;
-                  
-                  cd.style.width = cdNewWidth > 0 ? `${cdNewWidth}px` : 0;
-                  cd.style.opacity = cdNewWidth / cdWidth;
-                  console.log(cdNewWidth);
-            }
+         document.onscroll = () =>{
+               const scrollTop = document.documentElement.scrollTop || window.scrollY;
+               var cdNewWidth = cdWidth - scrollTop;
+               
+               cd.style.width = cdNewWidth > 0 ? `${cdNewWidth}px` : 0;
+               cd.style.opacity = cdNewWidth / cdWidth;
+               console.log(cdNewWidth);
+         }
 
-            // onclick
-            playBtn.onclick = () => {
-                  if(_this.isPlaying){
-                        audio.pause();
-                        cdAnimate.pause();
-                  }else{
-                        audio.play();
-                        cdAnimate.play();
-                  }
-            }
+         // onclick
+         playBtn.onclick = () => {
+               if(_this.isPlaying){
+                     audio.pause();
+                     cdAnimate.pause();
+               }else{
+                     audio.play();
+                     cdAnimate.play();
+               }
+         }
 
-            audio.onplay = () =>{
-                  _this.isPlaying = true;
-                  player.classList.add('playing');
-            }
-            audio.onpause = () =>{
-                  _this.isPlaying = false;
-                  player.classList.remove('playing');
-            }
-            audio.ontimeupdate = () => {
-                  let progressPercent;
-                  if(audio.duration){
-                        progressPercent = (audio.currentTime/audio.duration * 100);
-                        progress.value = progressPercent;
-                  }else{
-                        progressPercent = 0;
-                  }
-            }
-            
-            progress.oninput = (e) => {
-                  audio.currentTime = e.target.value / 100 * audio.duration;
-            }
+         audio.onplay = () =>{
+               _this.isPlaying = true;
+               player.classList.add('playing');
+         }
+         audio.onpause = () =>{
+               _this.isPlaying = false;
+               player.classList.remove('playing');
+         }
+         audio.ontimeupdate = () => {
+               let progressPercent;
+               if(audio.duration){
+                     progressPercent = (audio.currentTime/audio.duration * 100);
+                     progress.value = progressPercent;
+               }else{
+                     progressPercent = 0;
+               }
+         }
+         
+         progress.oninput = (e) => {
+               audio.currentTime = e.target.value / 100 * audio.duration;
+         }
 
-            nextBtn.onclick = () => { 
-                  if(_this.isRandom){
-                        _this.randomSong();
-                  }else{
-                        _this.nextSong();
-                  }
-                  _this.changeTitle(_this.currentSong.name)
-                  _this.changeFavicon(_this.currentSong.image)
+         nextBtn.onclick = () => { 
+            if(_this.isRandom){
+                  _this.randomSong();
+            }else{
+                  _this.nextSong();
+            }
+            _this.changeTitle(_this.currentSong.name)
+            _this.setConfig('titleText', _this.currentSong.name)
+            _this.changeFavicon(_this.currentSong.image)
+            _this.setConfig('faviconText', _this.currentSong.image)
+
+            audio.play();
+            _this.render();
+            _this.setConfig('currentIndex', this.currentIndex);
+            _this.scrollToActiveSong();
+         }
+         preBtn.onclick = () => { 
+            if(_this.isRandom){
+                  _this.randomSong();
+            }else{
+                  _this.preSong();
+            }
+            _this.changeTitle(_this.currentSong.name)
+            _this.setConfig('titleText', _this.currentSong.name)
+            _this.changeFavicon(_this.currentSong.image)
+            _this.setConfig('faviconText', _this.currentSong.image)
+
+            audio.play();
+            _this.render();
+            _this.setConfig('currentIndex', this.currentIndex);
+            _this.scrollToActiveSong();
+         }
+         randomBtn.onclick = () => {
+            _this.isRandom = !_this.isRandom;
+            _this.setConfig('isRandom', _this.isRandom);
+            randomBtn.classList.toggle('shuffle', _this.isRandom);
+         }
+         repeatBtn.onclick = () => {
+               _this.isRepeat = !_this.isRepeat;
+               _this.setConfig('isRepeat', _this.isRepeat);
+               repeatBtn.classList.toggle('repeat', _this.isRepeat);
+         }
+
+         //next song when current song ended
+         audio.onended = () => {
+            if(_this.isRepeat){
                   audio.play();
-                  _this.render();
+            }else{
+                  nextBtn.click();
+            }
                   _this.setConfig('currentIndex', this.currentIndex);
-                  _this.scrollToActiveSong();
-            }
-            preBtn.onclick = () => { 
-                  if(_this.isRandom){
-                        _this.randomSong();
+         }
+
+         playlist.onclick = (e) =>{
+            const noActiveSong = e.target.closest('.song:not(.active)');
+
+            if(noActiveSong){
+                  const indexSongClick = noActiveSong.dataset.index;
+
+                  if(!e.target.closest('.song .fa-trash')){
+                     _this.currentIndex = Number(indexSongClick);
+                     _this.loadCurrentSong();
+                     audio.play();
+                     _this.render();
+                     _this.setConfig('currentIndex', this.currentIndex);
+
+                     // change title and favicon when click music 
+                     _this.changeTitle(_this.currentSong.name)
+                     _this.setConfig('titleText', _this.currentSong.name)
+                     _this.changeFavicon(_this.currentSong.image)
+                     _this.setConfig('faviconText', _this.currentSong.image)
                   }else{
-                        _this.preSong();
-                  }
-                  _this.changeTitle(_this.currentSong.name);
-                  _this.changeFavicon(_this.currentSong.image)
-                  audio.play();
-                  _this.render();
-                  _this.setConfig('currentIndex', this.currentIndex);
-                  _this.scrollToActiveSong();
-            }
-            randomBtn.onclick = () => {
-                  _this.isRandom = !_this.isRandom;
-                  _this.setConfig('isRandom', _this.isRandom);
-                  randomBtn.classList.toggle('shuffle', _this.isRandom);
-            }
-            repeatBtn.onclick = () => {
-                  _this.isRepeat = !_this.isRepeat;
-                  _this.setConfig('isRepeat', _this.isRepeat);
-                  repeatBtn.classList.toggle('repeat', _this.isRepeat);
-            }
-
-            //next song when current song ended
-            audio.onended = () => {
-                  if(_this.isRepeat){
-                        audio.play();
-                  }else{
-                        nextBtn.click();
-                  }
-                        _this.setConfig('currentIndex', this.currentIndex);
-            }
-
-            playlist.onclick = (e) =>{
-                  const noActiveSong = e.target.closest('.song:not(.active)');
-
-                  if(noActiveSong){
-                        const indexSongClick = noActiveSong.dataset.index;
-                        
-
-                        if(!e.target.closest('.song .fa-trash')){
-                              _this.currentIndex = Number(indexSongClick);
-                              _this.loadCurrentSong();
-                              audio.play();
-                              _this.render();
-                              _this.setConfig('currentIndex', this.currentIndex);
-
-                        }else{
-                              const songdeleted = $(`.song[data-index="${Number(indexSongClick)}"]`);
-                              songdeleted.remove();
-                        }
+                     const songdeleted = $(`.song[data-index="${Number(indexSongClick)}"]`);
+                     songdeleted.remove();
                   }
             }
+         }
              
       },
       changeFavicon(iconPath){
@@ -300,62 +312,66 @@ const app = {
          }
       },
       scrollToActiveSong(){
-            setTimeout(()=>{
-                  $('.song.active').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+         setTimeout(()=>{
+               $('.song.active').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
-            }, 200)
+         }, 200)
       }
       ,
       loadCurrentSong(){
-            heading.textContent = this.currentSong.name;
-            cd.style.backgroundImage = `url('${this.currentSong.image}')`;
-            audio.src = this.currentSong.path;
+         heading.textContent = this.currentSong.name;
+         cd.style.backgroundImage = `url('${this.currentSong.image}')`;
+         audio.src = this.currentSong.path;
       },
       loadConfig(){
-            if(this.config){
-                  if(this.config.currentIndex != null) this.currentIndex = this.config.currentIndex;
-                  if(this.config.isMoon != null) this.isMoon = this.config.isMoon;
-                  if(this.config.isRandom != null) this.isRandom = this.config.isRandom;
-                  if(this.config.isRepeat != null) this.isRepeat = this.config.isRepeat;
-            }
+         if(this.config){
+               if(this.config.currentIndex != null) this.currentIndex = this.config.currentIndex;
+               if(this.config.isMoon != null) this.isMoon = this.config.isMoon;
+               if(this.config.isRandom != null) this.isRandom = this.config.isRandom;
+               if(this.config.isRepeat != null) this.isRepeat = this.config.isRepeat;
+               this.title = this.config.titleText;
+               this.favicon = this.config.faviconText;
+         }
       },
       configIntoApp(){
-            body.classList.toggle('moon-body', this.isMoon);
-            randomBtn.classList.toggle('shuffle', this.isRandom);
-            repeatBtn.classList.toggle('repeat', this.isRepeat);
+         document.title = this.config.titleText;
+         this.changeFavicon(this.config.faviconText);
+         body.classList.toggle('moon-body', this.isMoon);
+         randomBtn.classList.toggle('shuffle', this.isRandom);
+         repeatBtn.classList.toggle('repeat', this.isRepeat);
       }
       ,
       nextSong(){
-            var nextIndex = this.currentIndex + 1;
-            this.currentIndex = nextIndex == this.songs.length ? 0 : nextIndex;
-            this.loadCurrentSong();
+         var nextIndex = this.currentIndex + 1;
+         this.currentIndex = nextIndex == this.songs.length ? 0 : nextIndex;
+         this.loadCurrentSong();
       },
       preSong(){
-            var preIndex = this.currentIndex - 1;
-            this.currentIndex = preIndex == -1 ? this.songs.length-1 : preIndex ;
-            this.loadCurrentSong();
+         var preIndex = this.currentIndex - 1;
+         this.currentIndex = preIndex == -1 ? this.songs.length-1 : preIndex ;
+         this.loadCurrentSong();
       },
       randomSong(){
-            let randomIndex;
-            do{
-                  randomIndex = Math.round(Math.random() * (this.songs.length - 1));
-            }while(randomIndex === this.currentIndex && this.songs.length > 1);
-            console.log(randomIndex);
-            this.currentIndex = randomIndex;
-            this.loadCurrentSong();
+         let randomIndex;
+         do{
+               randomIndex = Math.round(Math.random() * (this.songs.length - 1));
+         }while(randomIndex === this.currentIndex && this.songs.length > 1);
+         console.log(randomIndex);
+         this.currentIndex = randomIndex;
+         this.loadCurrentSong();
       }
       ,
       start(){
-            //load config
-            this.loadConfig();
-            this.configIntoApp();
+         //load config
+         this.loadConfig();
+         this.configIntoApp();
 
-            this.defineProperties();
-            this.handleEvents();    
-            
-            this.loadCurrentSong();
+         this.defineProperties();
+         this.handleEvents();    
+         
+         this.loadCurrentSong();
 
-            this.render();
+         this.render();
       }
 
       
